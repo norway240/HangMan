@@ -243,10 +243,26 @@ Begin VB.Form frmGame
       Top             =   4200
       Width           =   495
    End
+   Begin VB.Label lblDif 
+      Height          =   255
+      Left            =   6960
+      TabIndex        =   30
+      Top             =   120
+      Width           =   735
+   End
+   Begin VB.Label Label2 
+      Alignment       =   1  'Right Justify
+      Caption         =   "Difficulty:   Level"
+      Height          =   255
+      Left            =   5640
+      TabIndex        =   29
+      Top             =   120
+      Width           =   1215
+   End
    Begin VB.Image imgRShoe 
       Height          =   240
       Left            =   3360
-      Picture         =   "Form1.frx":0000
+      Picture         =   "frmGame.frx":0000
       Stretch         =   -1  'True
       Top             =   2520
       Visible         =   0   'False
@@ -255,7 +271,7 @@ Begin VB.Form frmGame
    Begin VB.Image imgLShoe 
       Height          =   240
       Left            =   2880
-      Picture         =   "Form1.frx":17DD
+      Picture         =   "frmGame.frx":17DD
       Stretch         =   -1  'True
       Top             =   2520
       Visible         =   0   'False
@@ -264,7 +280,7 @@ Begin VB.Form frmGame
    Begin VB.Image imgPants 
       Height          =   495
       Left            =   3120
-      Picture         =   "Form1.frx":2FA8
+      Picture         =   "frmGame.frx":2FA8
       Stretch         =   -1  'True
       Top             =   2160
       Visible         =   0   'False
@@ -273,7 +289,7 @@ Begin VB.Form frmGame
    Begin VB.Image imgTie 
       Height          =   495
       Left            =   3000
-      Picture         =   "Form1.frx":69E3
+      Picture         =   "frmGame.frx":69E3
       Stretch         =   -1  'True
       Top             =   1440
       Visible         =   0   'False
@@ -282,7 +298,7 @@ Begin VB.Form frmGame
    Begin VB.Image imgShirt 
       Height          =   495
       Left            =   3120
-      Picture         =   "Form1.frx":8734
+      Picture         =   "frmGame.frx":8734
       Stretch         =   -1  'True
       Top             =   1680
       Visible         =   0   'False
@@ -291,7 +307,7 @@ Begin VB.Form frmGame
    Begin VB.Image imgHat 
       Height          =   975
       Left            =   2880
-      Picture         =   "Form1.frx":94B8
+      Picture         =   "frmGame.frx":94B8
       Stretch         =   -1  'True
       Top             =   360
       Visible         =   0   'False
@@ -300,7 +316,7 @@ Begin VB.Form frmGame
    Begin VB.Image imgSad 
       Height          =   600
       Left            =   3000
-      Picture         =   "Form1.frx":1C8D1
+      Picture         =   "frmGame.frx":1C8D1
       Stretch         =   -1  'True
       Top             =   1080
       Visible         =   0   'False
@@ -309,7 +325,7 @@ Begin VB.Form frmGame
    Begin VB.Image imgHappy 
       Height          =   600
       Left            =   3000
-      Picture         =   "Form1.frx":1CD82
+      Picture         =   "frmGame.frx":1CD82
       Stretch         =   -1  'True
       Top             =   1080
       Visible         =   0   'False
@@ -324,11 +340,21 @@ Begin VB.Form frmGame
       Width           =   1215
    End
    Begin VB.Label lblGuesses 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   1695
       Left            =   360
       TabIndex        =   1
       Top             =   1080
       Width           =   1575
+      WordWrap        =   -1  'True
    End
    Begin VB.Label lblWord 
       Alignment       =   2  'Center
@@ -451,7 +477,7 @@ Private Sub Guess(Guess As String)
     
     Dim Fail As Boolean 'stores whether that letter is in the string or not
     Fail = True 'default value
-    For intCount = 1 To intWordLength 'loop through length of word again (loop inside a loop, loop-ception?)
+    For intCount = 1 To intWordLength 'loop through length of word again
         If strLetters(intGuess) = strWordLetters(intCount) Then 'test the letter you guessed against each letter in the word you are trying to guess
             Fail = False 'if it matches a letter then they did not fail
         End If
@@ -461,7 +487,7 @@ Private Sub Guess(Guess As String)
     End If
     
     For intCount = 1 To intWordLength 'loop through length of word once again (this is probably starting to seem inefficient but it works and im not messing with it)
-        For i = 1 To 26 'another loop to go through all the letters you guessed
+        For i = 1 To 26 'another loop to go through all the letters you guessed (loop inside a loop, loop-ception?)
             If strLetters(i) = strWordLetters(intCount) Then 'if a letter you guessed matches a letter in the word you are trying to guess
                 strWordLettersGuessed(intCount) = True 'change the boolean of that letter in the word to remember they already guessed that letter
             End If
@@ -563,7 +589,8 @@ Private Sub Guess(Guess As String)
         For intCount = 0 To 25 'IS THIS THE LAST LOOP OMG!!!
             cmdGuess(intCount).Visible = False 'make all the buttons vanish so they cant guess anymore
         Next intCount
-            MsgBox "YOU WIN!!!", vbOKOnly, "Hang Man" 'FREAKING TELL THEM THEY WON ALREADY! GOSH
+        
+        MsgBox "YOU WIN!!!", vbOKOnly, "Hang Man" 'FREAKING TELL THEM THEY WON ALREADY! GOSH
         Exit Sub
     End If
 End Sub

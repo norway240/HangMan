@@ -58,7 +58,7 @@ Begin VB.Form frmDif
    Begin VB.Image imgRShoe 
       Height          =   240
       Left            =   5760
-      Picture         =   "Form2.frx":0000
+      Picture         =   "frmDif.frx":0000
       Stretch         =   -1  'True
       Top             =   3120
       Width           =   495
@@ -66,7 +66,7 @@ Begin VB.Form frmDif
    Begin VB.Image imgLShoe 
       Height          =   240
       Left            =   5280
-      Picture         =   "Form2.frx":17DD
+      Picture         =   "frmDif.frx":17DD
       Stretch         =   -1  'True
       Top             =   3120
       Width           =   495
@@ -74,7 +74,7 @@ Begin VB.Form frmDif
    Begin VB.Image Image6 
       Height          =   495
       Left            =   3720
-      Picture         =   "Form2.frx":2FA8
+      Picture         =   "frmDif.frx":2FA8
       Stretch         =   -1  'True
       Top             =   2040
       Width           =   615
@@ -82,7 +82,7 @@ Begin VB.Form frmDif
    Begin VB.Image Image8 
       Height          =   495
       Left            =   5400
-      Picture         =   "Form2.frx":4CF9
+      Picture         =   "frmDif.frx":4CF9
       Stretch         =   -1  'True
       Top             =   2040
       Width           =   615
@@ -90,7 +90,7 @@ Begin VB.Form frmDif
    Begin VB.Image Image10 
       Height          =   495
       Left            =   5520
-      Picture         =   "Form2.frx":6A4A
+      Picture         =   "frmDif.frx":6A4A
       Stretch         =   -1  'True
       Top             =   2760
       Width           =   495
@@ -98,7 +98,7 @@ Begin VB.Form frmDif
    Begin VB.Image Image9 
       Height          =   495
       Left            =   5520
-      Picture         =   "Form2.frx":A485
+      Picture         =   "frmDif.frx":A485
       Stretch         =   -1  'True
       Top             =   2280
       Width           =   495
@@ -106,7 +106,7 @@ Begin VB.Form frmDif
    Begin VB.Image imgPants 
       Height          =   495
       Left            =   3840
-      Picture         =   "Form2.frx":B209
+      Picture         =   "frmDif.frx":B209
       Stretch         =   -1  'True
       Top             =   2760
       Width           =   495
@@ -114,7 +114,7 @@ Begin VB.Form frmDif
    Begin VB.Image imgShirt 
       Height          =   495
       Left            =   3840
-      Picture         =   "Form2.frx":EC44
+      Picture         =   "frmDif.frx":EC44
       Stretch         =   -1  'True
       Top             =   2280
       Width           =   495
@@ -122,25 +122,23 @@ Begin VB.Form frmDif
    Begin VB.Image Image7 
       Height          =   975
       Left            =   5280
-      Picture         =   "Form2.frx":F9C8
+      Picture         =   "frmDif.frx":F9C8
       Stretch         =   -1  'True
       Top             =   960
-      Visible         =   0   'False
       Width           =   1020
    End
    Begin VB.Image Image5 
       Height          =   975
       Left            =   3600
-      Picture         =   "Form2.frx":22DE1
+      Picture         =   "frmDif.frx":22DE1
       Stretch         =   -1  'True
       Top             =   960
-      Visible         =   0   'False
       Width           =   1020
    End
    Begin VB.Image imgTie 
       Height          =   495
       Left            =   2040
-      Picture         =   "Form2.frx":361FA
+      Picture         =   "frmDif.frx":361FA
       Stretch         =   -1  'True
       Top             =   2040
       Width           =   615
@@ -148,16 +146,15 @@ Begin VB.Form frmDif
    Begin VB.Image imgHat 
       Height          =   975
       Left            =   1920
-      Picture         =   "Form2.frx":37F4B
+      Picture         =   "frmDif.frx":37F4B
       Stretch         =   -1  'True
       Top             =   960
-      Visible         =   0   'False
       Width           =   1020
    End
    Begin VB.Image Image4 
       Height          =   615
       Left            =   6840
-      Picture         =   "Form2.frx":4B364
+      Picture         =   "frmDif.frx":4B364
       Stretch         =   -1  'True
       Top             =   2040
       Width           =   1335
@@ -210,7 +207,7 @@ Begin VB.Form frmDif
    Begin VB.Image Image3 
       Height          =   600
       Left            =   5400
-      Picture         =   "Form2.frx":4C97D
+      Picture         =   "frmDif.frx":4C97D
       Stretch         =   -1  'True
       Top             =   1680
       Width           =   675
@@ -255,7 +252,7 @@ Begin VB.Form frmDif
    Begin VB.Image Image2 
       Height          =   600
       Left            =   3720
-      Picture         =   "Form2.frx":4CE45
+      Picture         =   "frmDif.frx":4CE45
       Stretch         =   -1  'True
       Top             =   1680
       Width           =   675
@@ -300,7 +297,7 @@ Begin VB.Form frmDif
    Begin VB.Image Image1 
       Height          =   600
       Left            =   2040
-      Picture         =   "Form2.frx":4D30D
+      Picture         =   "frmDif.frx":4D30D
       Stretch         =   -1  'True
       Top             =   1680
       Width           =   675
@@ -345,7 +342,7 @@ Begin VB.Form frmDif
    Begin VB.Image imgHappy 
       Height          =   600
       Left            =   360
-      Picture         =   "Form2.frx":4D7D5
+      Picture         =   "frmDif.frx":4D7D5
       Stretch         =   -1  'True
       Top             =   1680
       Width           =   675
@@ -395,6 +392,7 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub cmdDif_Click(Index As Integer)
     intDif = Val(Right(cmdDif(Index).Caption, 1)) 'change the difficuly level the the number on the button
+    frmGame.lblDif.Caption = intDif 'display difficulty level
     frmGame.Show 'redisplay the main form
     Unload frmDif 'unload this for as its no longer needed
 End Sub
